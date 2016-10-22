@@ -6,6 +6,11 @@
                 <% unless content.img.empty? %>
                     <h4><%= content.name %></h4>
                     <img src="<%= content.img %>">
+                    <form action="content/<%= content.id %>/delete" method="post">
+                        <button type="submit" class="btn btn-danger">
+                          <i class="glyphicon glyphicon-trash"></i>
+                        </button>
+                    </form>
                 <% end %>
                 </li>
         <% end %>

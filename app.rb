@@ -108,9 +108,16 @@ post '/new' do
     redirect '/'
 end
 
-post '/:id/delete' do
+post '/user/:id/delete' do
     user = User.find(params[:id])
     user.delete
     
     redirect '/7808839'
+end
+
+post '/content/:id/delete' do
+    content = Contribution.find(params[:id])
+    content.delete
+    
+    redirect '/'
 end
