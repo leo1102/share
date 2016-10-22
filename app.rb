@@ -72,15 +72,17 @@ post '/signin' do
 end    
 
 post '/signup' do
-    @user = User.create(familyname: params[:familyname], 
-                        firstname: params[:firstname], 
-                        familyname_phonetic: params[:familyname_phonetic], 
-                        firstname_phonetic: params[:firstname_phonetic],
-                        mail: params[:mail], 
-                        phone: params[:phone], 
-                        password: params[:password], 
-                        password_confirmation: params[:password_confirmation])
-            
+    @user = User.create(
+        familyname: params[:familyname], 
+        firstname: params[:firstname], 
+        familyname_phonetic: params[:familyname_phonetic], 
+        firstname_phonetic: params[:firstname_phonetic],
+        mail: params[:mail], 
+        phone: params[:phone], 
+        password: params[:password], 
+        password_confirmation: params[:password_confirmation]
+    )
+    
     if @user.persisted?
         session[:user] = @user.id
     end
