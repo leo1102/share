@@ -1,0 +1,19 @@
+<div>
+    <% unless current_user.nil? %>
+        <h3>すでにログインしています。</h3>
+        <li><a href="/signout">ログアウト</a></li>
+    <% else %>
+        <form action="/signin" method="POST">
+            <div class="form">
+                <label for="mail">メールアドレスを入力</label><br>
+                <input name="mail" id="mail" placeholder="例）ichiro0812@share.com" required class="form-control"><br>
+                <label for="password">パスワードを入力</label><br>
+                <input name="password" type="password" id="password" placeholder="例）ichiro1121" required class="form-control"><br>
+            </div>
+            <div>
+                <input type="submit" class="btn btn-success" value="ログイン">
+            </div>
+        </form>
+        <p class="sign"><a href="/signup">アカウントを作成</a></p>
+    <% end %>
+</div>

@@ -1,0 +1,37 @@
+<div>
+    <% unless current_user.nil? %>
+        <h3>すでにログインしています。</h3>
+        <li><a href="/signout">ログアウト</a></li>
+    <% else %>
+        <form action="/signup" method="POST">
+            <div class="form">
+                <div class="row">
+                    <div class="col-md-4">
+                        <font color="#ff0000">※</font> <label for="familyname">苗字</label><br>
+                        <input name="familyname" id="familyname" placeholder="例）山田" required class="form-control"><br>
+                        <font color="#ff0000">※</font> <label for="familyname_phonetic">苗字 フリガナ</label><br>
+                        <input name="familyname_phonetic" id="familyname_phonetic" placeholder="例）ヤマダ" required class="form-control"><br>
+                        <font color="#ff0000">※</font> <label for="mail">メールアドレスを入力</label><br>
+                        <input name="mail" id="mail" placeholder="例）ichiro0812@share.com" required class="form-control"><br>
+                        <label for="phone">電話番号を入力</label><br>
+                        <input name="phone" id="phone" placeholder="例）09063932496" class="form-control"><br>
+                        <font color="#ff0000">※</font> <label for="password">パスワードを入力</label><br>
+                        <input name="password" type="password" id="password" placeholder="例）ichiro1121" required class="form-control"><br>
+                        <font color="#ff0000">※</font> <label for="password_confirmation">パスワードをもう一度入力</label><br>
+                        <input name="password_confirmation" type="password" id="password_confirmation" placeholder="例）ichiro1121" required class="form-control"><br>
+                    </div>
+                    <div class="col-md-4">
+                        <font color="#ff0000">※</font> <label for="firstname">名前</label><br>
+                        <input name="firstname" id="firstname" placeholder="例）一郎" required class="form-control"><br>
+                        <font color="#ff0000">※</font> <label for="firstname_phonetic">名前 フリガナ</label><br>
+                        <input name="firstname_phonetic" id="firstname_phonetic" placeholder="例）イチロウ" required class="form-control"><br>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <input type="submit" class="btn btn-success" value="アカウントを作成">
+            </div>
+        </form>
+        <p class="sign"><a href="/signin">ログイン</a></p>
+    <% end %>
+</div>

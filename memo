@@ -1,0 +1,11 @@
+familyname: 鈴木
+firstname: 二郎
+familyname_phonetic: スズキ
+firstname_phonetic: ジロウ
+mail: test@gmail.com
+phone: 09084794355
+password: testtest1234
+
+accounts: /7808839
+
+$ rackup config.ru -p $PORT -o $IP

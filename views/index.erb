@@ -1,0 +1,14 @@
+<div class="contents">
+    <ul>
+        <li>
+        <% @contents.each do |content| %>
+                <li>
+                <% unless content.img.empty? %>
+                    <h4><%= content.name %></h4>
+                    <img src="<%= content.img %>">
+                <% end %>
+                </li>
+        <% end %>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Share | <%= @title %></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div id="header">
+        <div>
+             <h1 class="title"><a href="/">Share</a></h1>
+        </div>
+        <div class="nav">
+            <ul>
+                <% if !current_user.nil? %>
+                    <li><%= current_user.familyname %> <%= current_user.firstname %>さん</li>
+                <% else %>
+                    <li>ログインしていません</li>
+                <% end %>
+                <% unless current_user.nil? %>
+                    <li><a href="/new">投稿</a></li>
+                    <li><a href="/signout">ログアウト</a></li>
+                <% else %>
+                    <li><a href="/signin">ログイン</a></li>
+                    <li><a href="/signup">アカウントを作成</a></li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <div>
+                <h2><a href="/">トップ</a></h2>
+                <% unless current_user.nil? %>
+                <h2><a href="/new">投稿</a></h2>
+                <h2><a href="/signout">ログアウト</a></h2>
+                <h2><a href="/usage">使い方</a></h2>
+                <% else %>
+                <h2><a href="/signin">ログイン</a></h2>
+                <h2 style="font-size: 20px"><a href="/signup">アカウントを作成</a></h2>
+                <h2><a href="/usage">使い方</a></h2>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="page_title">
+                <b><%= @page_title %></b>
+            </div>
+            <div id="body">
+                <%= yield %>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        Copyright &#169; 2016 Share All Rights Reserved.
+    </div>
+</body>
+</html>

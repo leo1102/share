@@ -1,0 +1,38 @@
+<div>
+    <% if !current_user.nil? %>
+        <li><%= current_user.familyname %> <%= current_user.firstname %>さん</li>
+    <% else %>
+    
+    <% end %>
+    <% unless current_user.nil? %>
+        <li><a href="/signout">ログアウト</a></li>
+        <table>
+            <tr>
+                <th>苗字</th>
+                <th>名前</th>
+                <th>フリガナ</th>
+                <th>メールアドレス</th>
+                <th>電話番号</th>
+                <th>削除</th>
+            </tr>
+            <% @user.each do |user| %>
+            <tr>
+                <td><%= user.familyname %></td>
+                <td><%= user.firstname %></td>
+                <td><%= user.familyname_phonetic %> <%= user.firstname_phonetic %></td>
+                <td><%= user.mail %></td>
+                <td><%= user.phone %></td>
+                <td>
+                    <form action="<%= user.id %>/delete" method="post">
+                        <button type="submit" class="btn btn-danger">
+                          <i class="glyphicon glyphicon-trash"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            <% end %>
+        </table>
+    <% else %>
+        <li><a href="/signin">ログイン</a></li>
+    <% end %>
+</div>
