@@ -51,6 +51,13 @@ get '/usage' do
     erb :usage
 end
 
+get '/user/:id/edit' do
+    @title="アカウントを編集"
+    @page_title="アカウントを編集"
+    
+    erb :user_edit
+end
+
 get '/7808839' do
     @title="アカウント一覧"
     @page_title="アカウント一覧"
@@ -113,6 +120,28 @@ post '/user/:id/delete' do
     user.delete
     
     redirect '/7808839'
+end
+
+post '/user/:id/edit' do
+    user = User.find(params[:id])
+    
+    erb :user_edit
+end
+
+post '/user/:id/update' do
+    user = User.find(params[:id])
+    user.update({
+        familyname: params[:familyname], 
+        firstname: params[:firstname], 
+        familyname_phonetic: params[:familyname_phonetic], 
+        firstname_phonetic: params[:firstname_phonetic],
+        mail: params[:mail], 
+        phone: params[:phone], 
+        password: params[:password], 
+        password_confirmation: params[:password_confirmation]
+    })
+    
+    redirect '/user/:id/edit'
 end
 
 post '/content/:id/delete' do

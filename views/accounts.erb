@@ -23,7 +23,7 @@
                 <td><%= user.mail %></td>
                 <td><%= user.phone %></td>
                 <td>
-                    <form action="<%= user.id %>/delete" method="post">
+                    <form action="user/<%= user.id %>/delete" method="post">
                         <button type="submit" class="btn btn-danger">
                           <i class="glyphicon glyphicon-trash"></i>
                         </button>

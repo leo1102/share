@@ -37,6 +37,7 @@
                 <h2><a href="/">トップ</a></h2>
                 <% unless current_user.nil? %>
                 <h2><a href="/new">投稿</a></h2>
+                <h2 style="font-size: 20px"><a href="/user/<%= current_user.id %>/edit">アカウントを編集</a></h2>
                 <h2><a href="/signout">ログアウト</a></h2>
                 <h2><a href="/usage">使い方</a></h2>
                 <% else %>
@@ -56,7 +57,7 @@
         </div>
     </div>
     <div id="footer">
-        Copyright &#169; 2016 Share All Rights Reserved.
+        Copyright &#169; 2016 <a href="/"><font color="#000000">Share</font></a> All Rights Reserved.
     </div>
 </body>
 </html>
